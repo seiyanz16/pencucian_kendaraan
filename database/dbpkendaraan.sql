@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2023 at 04:51 PM
+-- Generation Time: Mar 13, 2023 at 10:47 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -142,6 +142,17 @@ CREATE TRIGGER `hitung_total_bayar` BEFORE INSERT ON `transaksi` FOR EACH ROW BE
 END
 $$
 DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `up_hitung_total_bayar` BEFORE UPDATE ON `transaksi` FOR EACH ROW BEGIN
+    DECLARE total INT;
+    SELECT (j.biaya + l.biaya) INTO total
+    FROM jenis_kendaraan j
+    JOIN layanan l ON l.idlayanan = NEW.idlayanan
+    WHERE j.idjkendaraan = NEW.idjkendaraan;
+    SET NEW.total_bayar = total;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -162,7 +173,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`iduser`, `username`, `email`, `password`) VALUES
 (1, 'admin', 'iniadmin@gmail.com', '$2y$10$QPLLha7mHKKqJiW3hyF1EeBpRrTyaCmEe6CcIUsTt5PMYz9f8TbQW'),
-(2, 'leo', 'leoleo@gmail.com', '$2y$10$wJn2paJpZagkXuRrFEcsUOb1HJC5A5t700SOpFHT6OmNwzHgrhNce');
+(2, 'leo', 'leoleo@gmail.com', '$2y$10$wJn2paJpZagkXuRrFEcsUOb1HJC5A5t700SOpFHT6OmNwzHgrhNce'),
+(10, 'hiyak', 'johanobluda@gmail.com', '$2y$10$rMlyBM5pm0olVfSVVSvOreTeBtLVb/OM2dE5hME2aZnepOrhjK9My'),
+(11, 'gamin', 'gaminyoon@gmail.com', '$2y$10$C7AGEdZcoObmujkqAv0LKe2E/2eiGxk9dEpdmC8VZwa6vqZdst4Oq');
 
 -- --------------------------------------------------------
 
@@ -295,7 +308,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
