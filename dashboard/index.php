@@ -173,7 +173,7 @@ if (isset($_GET['hal'])) {
             <li class="nav-item">
               <a class="nav-link <?= explode('-', $halaman)[0] == 'pendaftaran' ? 'active' : ''; ?> "
                 href="index.php?hal=pendaftaran">
-                <span data-feather="briefcase" class="align-text-bottom"></span>
+                <span data-feather="clipboard" class="align-text-bottom"></span>
                 Pendaftaran
               </a>
             </li>
