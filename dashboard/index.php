@@ -180,21 +180,21 @@ if (isset($_GET['hal'])) {
             <li class="nav-item">
               <a class="nav-link <?= explode('-', $halaman)[0] == 'jkendaraan' ? 'active' : ''; ?> "
                 href="index.php?hal=jkendaraan">
-                <span data-feather="package" class="align-text-bottom"></span>
+                <span data-feather="truck" class="align-text-bottom"></span>
                 Jenis Kendaraan
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?= explode('-', $halaman)[0] == 'layanan' ? 'active' : ''; ?> "
                 href="index.php?hal=layanan">
-                <span data-feather="tag" class="align-text-bottom"></span>
+                <span data-feather="tool" class="align-text-bottom"></span>
                 Jenis Layanan
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?= explode('-', $halaman)[0] == 'transaksi' ? 'active' : ''; ?> "
                 href="index.php?hal=transaksi">
-                <span data-feather="share-2" class="align-text-bottom"></span>
+                <span data-feather="credit-card" class="align-text-bottom"></span>
                 Transaksi
               </a>
             </li>
