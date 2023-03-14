@@ -119,7 +119,7 @@ if (isset($_GET['hal'])) {
       <span class="navbar-toggler-icon"></span>
     </button>
     <form action="" method="post" class="w-100 rounded-0 border-0 d-flex">
-      <input class="form-control form-control-dark" type="text" name="keyword" id="keyword" placeholder="Search Here" autocomplete="off">
+      <input class="form-control form-control-dark" type="text" name="keyword" id="keyword" placeholder="Search..." autocomplete="off">
       <button type="submit" class="btn btn-dark" name="cari">
         <i class="fas fa-search" data-feather="search"></i>
       </button>
