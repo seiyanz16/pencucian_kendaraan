@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['login'])){
-    header("Location: login.php");
-    exit;
+if (!isset($_SESSION['login'])) {
+  header("Location: login.php");
+  exit;
 }
 $title = '';
 
@@ -118,8 +118,12 @@ if (isset($_GET['hal'])) {
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search"
-      aria-label="Search">
+    <form action="" method="post" class="w-100 rounded-0 border-0 d-flex">
+      <input class="form-control form-control-dark" type="text" name="keyword" id="keyword" placeholder="Search Here" autocomplete="off">
+      <button type="submit" class="btn btn-dark" name="cari">
+        <i class="fas fa-search" data-feather="search"></i>
+      </button>
+    </form>
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
         <a class="nav-link px-3 fs-5" href="logout.php">Logout</a>
